@@ -1,0 +1,118 @@
+﻿
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>详情</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	*{margin: 0;padding: 0;}
+	html,body{height: 100%;font-family: "微软雅黑"}
+	img{line-height: 0;display: block;width: 100%;}
+	.index-head{line-height: 0;}
+	.index-content-bg{line-height: 0;}
+	.container{width: 100%;max-width: 640px;height: 100%;margin: 0 auto;}
+	.introduce{text-align:center;background:none;}
+	.introduce .content-head{color:#f3d923;font-size:30px;}
+	.introduce .content-life{font-size:20px;}
+	.introduce .content-buy{font-size:20px;}
+	.introduce .content-buy span{background:#4eff00;font-size:30px;}
+	.introduce h1{font-size:30px;color:red;}
+	
+    .nav{max-width: 640px;margin: 0 auto;height: 0;line-height: 0;}
+    ul,li{list-style: none;}
+
+	@media (width: 375px){.introduce .content{font-size:12px;color:black;}}
+	@media (min-width: 376px){.introduce .content{font-size:16px;color:black;}}
+	@media (width: 360px){.introduce .content{font-size:12px;color:black;}}
+</style>
+</head>
+<body>
+    <script>
+    
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null)
+                return decodeURI(r[2]);
+            return null;
+        }
+        
+        function buy() {
+            alert("请回复微信发起支付！");
+            //window.location.href = '';
+        }
+        
+        function down() {
+            window.location.href = 'http://yhc.69vip.work/app/index/qudao.html?uid=Mjcy';
+        }
+        
+        function vedio() {
+            window.location.href = './video.html';
+        }
+        
+    </script>
+    
+    <div class="container">
+        <div class="index-head">
+			<img src="./image/main.jpg" alt=""><br/>
+			<br/>
+		</div>
+
+        <div class="index-content-bg">
+            <img src="./image/view.jpg" alt=""><br/>
+			<br/>
+        </div>
+        
+        <div class="introduce">
+			<h1>影视无限『生活精彩』</h1>
+			<div class="content-life">
+			影视VIP可在全网各大平台免费观看！<br/>
+			不用买会员也可以让你Hi~<br/>
+			追剧追到被靓仔追！<br/>
+			迷影迷到被靓女迷！<br/>
+			<br/>
+			</div>
+		</div>
+		
+		<div class="introduce">
+			<br/>
+            <div class="index-content-bg" style="margin-left:50px;margin-right:50px;">
+                <a href="javascript:buy();"><img src="./image/buy.jpg" alt=""></a><br/>
+    			<br/>
+            </div>
+			<br/>
+            <div class="index-content-bg" style="margin-left:50px;margin-right:50px;">
+                <a href="javascript:down();"><img src="./image/down.jpg" alt=""></a><br/>
+    			<br/>
+            </div>
+			<br/>
+            <div class="index-content-bg" style="margin-left:50px;margin-right:50px;">
+                <a href="javascript:vedio();"><img src="./image/vedio.jpg" alt=""></a><br/>
+    			<br/>
+            </div>
+            
+            <!--
+		    <div class="content-buy">
+		        <br/>
+    			关注微信<br/>
+    			▶▶▶<span>271867657</span>◀◀◀<br/>
+    			长按复制<br/>
+    			<br/>
+			</div>
+			-->
+		</div>
+		
+        <div class="footer">
+            <img src="./image/weixin.jpg" alt="">
+        </div>
+
+    </div>
+    
+
+    
+</body>
+</html>
