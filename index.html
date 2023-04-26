@@ -1,0 +1,21 @@
+<script src="https://lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(function(){
+	$.ajax({
+		async: false,
+		type: "GET",
+		dataType: "jsonp",
+		jsonp: "callback",
+		jsonpCallback: "callbackfunction",
+		url: "http://vmq.viviv.win/test",
+		//url: "http://movip.ueuo.com/getKaBank",
+		data: {id: "789"},
+		timeout: 3000,
+		contentType: "application/json;utf-8",
+		success: function(msg) {
+			console.log(msg);
+			alert(msg.msg);
+		}
+	});
+})
+</script>
