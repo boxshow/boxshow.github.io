@@ -1,27 +1,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>内联框架</title>
+    <title></title>
 </head>
 <body>
 
-<iframe id="call" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe id="call" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" src="http://vmq.viviv.win/wqun.html"></iframe>
 
-<script type="text/javascript" >
-var id=0;
-setInterval(function(){
-	id++;
-	//传入PHP参数
-	var url = 'http://movip.ueuo.com/test?id='+id;
-    //document.getElementById('call').contentWindow.location.reload();//静态参数
-	document.getElementById('call').contentWindow.location.replace('./call.html?url='+url);//动态参数
-},3000);
 
-window.addEventListener('message', function (e){
-	//返回PHP结果
-	console.log(e.data);
-}, false);
-
-</script>
 </body>
 </html>
