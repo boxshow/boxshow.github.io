@@ -28,29 +28,31 @@
 		function qs(n){var reg=new RegExp("(^|&)"+n+"=([^&]*)(&|$)","i");var r=window.location.search.substr(1).match(reg);if(r!=null)return decodeURI(r[2]);return null;}var p=qs('p');var i=qs('i');
 		
 		var uagent=new UAParser().getResult();
-		if(uagent.browser.name=='WeChat'){
-			if(uagent.os.name!='Windows'){
-				if(p=='info'||p=='work'){
-					document.write('<div id="info"><h1>!</h1><p>请点击右上角【•••】<br/>选择【在浏览器打开】</p><br/></div>')
-				}else if(p=='wqun'){
-					//document.write('<iframe class="bimg" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" src="https://kanpian.neocities.org/index.html?wid='+i+'&name=wqun"></iframe>')
-					
-					document.location.href='http://www.movip.store/wqun.html?wid='+i
-				}else{
-					document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
-				}
-			}
-			//else{document.write('<div id="info"><h1>!</h1><p>请复制链接到电脑浏览器打开！</p><br/></div>')}
-			
-			document.location.href='http://www.movip.store/wqun.html?wid='+i
-			
-		}else{
+		
+		if(uagent.browser.name=='WeChat'){//微信浏览器
+		
 			if(p=='info'||p=='work'){
-				document.location.href='http://43.252.231.127/'+p+'.html'
+				if(uagent.os.name=='Windows'){//是电脑端
+					document.write('<div id="info"><h1>!</h1><p>请复制链接到电脑浏览器打开！</p><br/></div>')
+				}else{//是手机端
+					document.write('<div id="info"><h1>!</h1><p>请点击右上角【•••】<br/>选择【在浏览器打开】</p><br/></div>')
+				}
+				
+			}else if(p=='wqun'){
+				//框架跨域只适用于安卓微信
+				//document.write('<iframe class="bimg" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" src="https://kanpian.neocities.org/index.html?wid='+i+'&name=wqun"></iframe>')
+				
+				document.location.href='http://www.movip.store/wqun.html?wid='+i
+				
+			}else{
+				document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
+			}
+
+		}else{//不是微信浏览器
+			if(p=='info'||p=='work'){
+				document.location.href='http://www.movip.store/'+p+'.html'
 			}else if(p=='wqun'){
 				document.write('<div id="info"><h1>!</h1><p>请在微信浏览器打开！</p><br/></div>')
-				//document.location.href='http://www.movip.store/wqun.html?wid='+i
-				
 			}else{
 				document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
 			}
