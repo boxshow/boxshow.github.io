@@ -22,16 +22,14 @@
     </style>
 </head>
 
-<body class="bimg">
+<body>
     <script src="./ua-parser.min.js"></script>
     <script>
 		function qs(n){var reg=new RegExp("(^|&)"+n+"=([^&]*)(&|$)","i");var r=window.location.search.substr(1).match(reg);if(r!=null)return decodeURI(r[2]);return null;}var p=qs('p');var i=qs('i');
 		
 		var uagent=new UAParser().getResult();
 		if(uagent.browser.name=='WeChat'){
-			if(uagent.os.name=='Windows'){
-				document.write('<div id="info"><h1>!</h1><p>请复制链接到电脑浏览器打开！</p><br/></div>')
-			}else{
+			if(uagent.os.name!='Windows'){
 				if(p=='info'||p=='work'){
 					document.write('<div id="info"><h1>!</h1><p>请点击右上角【•••】<br/>选择【在浏览器打开】</p><br/></div>')
 				}else if(p=='wqun'){
@@ -40,6 +38,8 @@
 					document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
 				}
 			}
+			//else{document.write('<div id="info"><h1>!</h1><p>请复制链接到电脑浏览器打开！</p><br/></div>')}
+			
 		}else{
 			if(p=='info'||p=='work'){
 				document.location.href='http://43.252.231.127/'+p+'.html'
