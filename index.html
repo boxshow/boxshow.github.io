@@ -33,7 +33,9 @@
 				if(p=='info'||p=='work'){
 					document.write('<div id="info"><h1>!</h1><p>请点击右上角【•••】<br/>选择【在浏览器打开】</p><br/></div>')
 				}else if(p=='wqun'){
-					document.write('<iframe class="bimg" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" src="https://kanpian.neocities.org/index.html?wid='+i+'&name=wqun"></iframe>')
+					//document.write('<iframe class="bimg" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" src="https://kanpian.neocities.org/index.html?wid='+i+'&name=wqun"></iframe>')
+					
+					document.location.href='http://43.252.231.127/wqun.html?wid='+i
 				}else{
 					document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
 				}
@@ -44,7 +46,7 @@
 			if(p=='info'||p=='work'){
 				document.location.href='http://43.252.231.127/'+p+'.html'
 			}else if(p=='wqun'){
-				document.write('<div id="info"><h1>!</h1><p>请保持在微信浏览器内打开！</p><br/></div>')
+				document.write('<div id="info"><h1>!</h1><p>请在微信浏览器打开！</p><br/></div>')
 			}else{
 				document.write('<div id="info"><h1>!</h1><p>无效链接！</p><br/></div>')
 			}
