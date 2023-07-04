@@ -25,12 +25,19 @@
 			document.write('<div id="info"><h1>!</h1><p>'+msg+'</p><br/></div>')
 		}
 		if(p>0&&p<4){
-
 			if(uagent.os.name=='Windows'){
 				if(uagent.browser.name=='WeChat'){
-					iFrame(p==1?'info':(p==2?'work':'wqun'))
+					if(p==1||p==2){
+						iHtml('请在电脑浏览器内打开')
+					}else if(p==3){
+						iFrame('wqun')
+					}
 				}else{
-					iHtml('请在微信浏览器打开！')
+					if(p==1||p==2){
+						iFrame(p==1?'info':'work')
+					}else if(p==3){
+						iHtml('请在微信浏览器内打开！')
+					}
 				}
 			}else{
 				if(uagent.browser.name=='WeChat'){
@@ -43,12 +50,12 @@
 					if(p==1||p==2){
 						iFrame(p==1?'info':'work')
 					}else if(p==3){
-						iHtml('请在微信浏览器打开！')
+						iHtml('请在微信浏览器内打开！')
 					}
 				}
 			}
 		}else{
-			iHtml('无效链接！')
+			iHtml('不是有效链接！')
 		}
 
     </script>
