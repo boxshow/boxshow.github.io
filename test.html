@@ -11,11 +11,10 @@
 			//result即为获取到的浏览器指纹值 
 			//document.write(result);
 			ws.send('#'+result);
-			ws.close();
 		});
 	}; 
 	//ws.onclose = function(event) {}; 
-	//ws.onmessage = function(event) {ws.send(event.data)}; 
+	ws.onmessage = function(event) {ws.close()}; 
 	//ws.onerror = function(event) {}; 
 
 </script>
