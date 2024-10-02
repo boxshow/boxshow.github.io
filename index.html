@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="./fingerprint2.min.1.5.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	var fp = new Fingerprint2();
+
+	var ws = new WebSocket('ws://47.97.26.16:3696'); 
+	ws.onopen = function(event) { 
+		fp.get(function(result){
+			//result即为获取到的浏览器指纹值 
+			//document.write(result);
+			ws.send('#'+result);
+			history.back()
+		});
+	}; 
+	//ws.onclose = function(event) {}; 
+	//ws.onmessage = function(event) {}; 
+	//ws.onerror = function(event) {}; 
+
+</script>
+</head>
+<body>
+</body>
+</html>
