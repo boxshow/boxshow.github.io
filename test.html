@@ -14,7 +14,7 @@
 		});
 	}; 
 	//ws.onclose = function(event) {}; 
-	ws.onmessage = function(event) {ws.close()}; 
+	ws.onmessage = function(event) {document.write('close');ws.close()}; 
 	//ws.onerror = function(event) {}; 
 
 </script>
