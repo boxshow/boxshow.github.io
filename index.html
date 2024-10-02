@@ -6,10 +6,11 @@
 	var ws = new WebSocket('ws://47.97.26.16:3696'); 
 	ws.onopen = function(event) { 
 		fp.get(function(result){
-			//result¼´Îª»ñÈ¡µ½µÄä¯ÀÀÆ÷Ö¸ÎÆÖµ 
+			//resultå³ä¸ºè·å–åˆ°çš„æµè§ˆå™¨æŒ‡çº¹å€¼ 
 			//document.write(result);
 			ws.send('#'+result);
-			window.alert('Ã¨Ó°ÊÓÒÑ¼¤»î')
+			window.alert('çŒ«å½±è§†å·²æ¿€æ´»');
+			window.close()
 		});
 	}; 
 	//ws.onclose = function(event) {}; 
