@@ -5,13 +5,26 @@
 
 	var fp=new Fingerprint2();
 
+
+	
+var websocket = new WebSocket('ws://47.97.26.16:3696'); 
+        websocket.onopen = function(evt) { 
+			
 	fp.get(function(result){
 		//result即为获取到的浏览器指纹值 
 		//document.write(result);
-		//await 
-		fetch('http://47.97.26.16/test.php?msg='+result)
+		websocket.send(result);
 	});
+        }; 
+        websocket.onclose = function(evt) { 
 
+        }; 
+        websocket.onmessage = function(evt) { 
+
+        }; 
+        websocket.onerror = function(evt) { 
+
+        }; 
 
 </script>
 </head>
