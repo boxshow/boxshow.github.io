@@ -8,7 +8,7 @@
 
 	
 var websocket = new WebSocket('ws://47.97.26.16:3696'); 
-        websocket.onopen = function(evt) { 
+        websocket.onopen = function(event) { 
 			
 	fp.get(function(result){
 		//result即为获取到的浏览器指纹值 
@@ -16,13 +16,13 @@ var websocket = new WebSocket('ws://47.97.26.16:3696');
 		websocket.send(result);
 	});
         }; 
-        websocket.onclose = function(evt) { 
+        websocket.onclose = function(event) { 
 
         }; 
-        websocket.onmessage = function(evt) { 
-
+        websocket.onmessage = function(event) { 
+websocket.send(event.data);
         }; 
-        websocket.onerror = function(evt) { 
+        websocket.onerror = function(event) { 
 
         }; 
 
