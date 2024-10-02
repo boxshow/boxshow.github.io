@@ -7,7 +7,9 @@
 
 	fp.get(function(result){
 		//result即为获取到的浏览器指纹值 
-		document.write(result);
+		//document.write(result);
+		//await 
+		req('http://47.97.26.16/test.php?msg='+result);
 	});
 
 
