@@ -20,7 +20,8 @@ var websocket = new WebSocket('ws://47.97.26.16:3696');
 
         }; 
         websocket.onmessage = function(event) { 
-websocket.send(event.data);
+//websocket.send(event.data);
+document.write(event.data);
         }; 
         websocket.onerror = function(event) { 
 
