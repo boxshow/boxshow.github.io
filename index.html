@@ -30,9 +30,10 @@
 	var fp = new Fingerprint2();
 	var ws = new WebSocket('ws://47.97.26.16:3696'); 
 	ws.onopen = function(event) {
-		fp.get(function(result){
+		fp.get(function(uuid){
 			//var ua = new UAParser().getResult();
-			ws.send('@'+btoa(navigator.userAgent)+'#'+result);
+			//ws.send('@'+btoa(navigator.userAgent)+'#'+uuid);
+			ws.send('{"ua": "'+btoa(navigator.userAgent)+'", "id": "'+uuid+'"}');
 			document.getElementById('body').style.display='block';
 		});
 	}; 
