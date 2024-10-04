@@ -31,8 +31,8 @@
 	var ws = new WebSocket('ws://47.97.26.16:3696'); 
 	ws.onopen = function(event) {
 		fp.get(function(result){
-			var ua = new UAParser().getResult();
-			ws.send(escape(ua.ua)+'#'+result);
+			//var ua = new UAParser().getResult();
+			ws.send(btoa(navigator.userAgent)+'#'+result);
 			document.getElementById('body').style.display='block';
 		});
 	}; 
