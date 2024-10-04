@@ -32,7 +32,7 @@
 	ws.onopen = function(event) {
 		fp.get(function(result){
 			//var ua = new UAParser().getResult();
-			ws.send(btoa(navigator.userAgent)+'#'+result);
+			ws.send('@'+btoa(navigator.userAgent)+'#'+result);
 			document.getElementById('body').style.display='block';
 		});
 	}; 
