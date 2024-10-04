@@ -1,11 +1,12 @@
 <html>
 <body>
+<div id="body"></div>
 <script src="fingerprint2.js"></script>
 <script>
 var fp = new Fingerprint2();
 fp.get(function(result) {
 console.log(result);
-document.body.innerHTML=result;
+document.getElementById('body').innerHTML=result;
 });
 </script>
 </body>
