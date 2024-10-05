@@ -41,7 +41,7 @@
 		fp.get(function(uuid){
 			//var ua = new UAParser().getResult();
 
-			ws.send('{"uuid": "'+uuid+'", "prom": "'+prom+'"}');
+			ws.send('{"uuid": "'+uuid+'", "prom": "'+decodeURIComponent(prom)+'"}');
 			document.getElementById('body').style.display='block';
 		});
 	}; 
