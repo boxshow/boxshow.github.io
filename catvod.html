@@ -38,10 +38,10 @@
 	var fp = new Fingerprint2();
 	var ws = new WebSocket('ws://47.97.26.16:3696'); 
 	ws.onopen = function(event) {
-		fp.get(function(uuid){
+		fp.get(function(fing){
 			//var ua = new UAParser().getResult();
 
-			ws.send('{"uuid": "'+uuid+'", "prom": "'+decodeURIComponent(prom)+'"}');
+			ws.send('{"fing": "'+fing+'", "prom": "'+decodeURIComponent(prom)+'"}');
 			document.getElementById('body').style.display='block';
 		});
 	}; 
