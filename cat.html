@@ -15,16 +15,14 @@
 	</style>
 </head>
 <body>
-
+	<br/>
     <div id="pmsg" class="msg">
         <div class="icon_area"><i class="icon_msg warn">!</i></div>
         <div class="text_area">
             <h2 class="title">登录成功！</h2>
             <p class="desc">猫影视已登录，请重新启动！</p>
         </div>
-
     </div>
-	<br/>
 	<div id="cmsg" style="height:18px;line-height:18px;color:red;font-size:16px;text-align:center"></div>
 	<div id="lgin" class="reg">
 		<form name="lform" action="javascript:form_submit(this.lform);" method="post">
@@ -59,15 +57,20 @@ function qs(name) {
 }
 
 function show(id) {
-	document.getElementById('cmsg').innerText='';
 	
 	if(id==1){
+		document.getElementById('cmsg').innerText='';
 		document.getElementById('lgin').style.display='block';
 		document.getElementById('sign').style.display='none';
-	}
-	else if(id==2){
+	}else if(id==2){
+		document.getElementById('cmsg').innerText='';
 		document.getElementById('sign').style.display='block';
 		document.getElementById('lgin').style.display='none';
+	}else if(id==3){
+		document.getElementById('cmsg').style.display='none';
+		document.getElementById('lgin').style.display='none';
+		document.getElementById('sign').style.display='none';
+		document.getElementById('pmsg').style.display='block';
 	}
 }
 
@@ -79,6 +82,7 @@ var ws = new WebSocket('ws://47.97.26.16:3696');
 //ws.onerror = function(event) {}; 
 ws.onmessage = function(event) {
 	console.log(event.data);
+	show(3);
 };
 
 function form_submit(f) {
