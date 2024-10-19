@@ -39,8 +39,8 @@
 		<div><a <a style="font-size:16px" href="#" onclick="show_html(1)">登录</a></div>
 	</div>
 
-
-
+<script src="./ws.js"></script>
+<script src="./md.js"></script>
 <script src="./ua.js"></script>
 <script type="text/javascript">
 
@@ -81,8 +81,8 @@ function show_html(id) {
 
 var prom = qs('p');
 //var ua = new UAParser().getResult();
-var ws = new WebSocket('ws://47.97.26.16:3696');
-//ws.onopen = function(event) {}; 
+//var ws = new WebSocket('ws://47.97.26.16:3696');
+ws.onopen = function(event) {ws.send('88888888888');}; 
 //ws.onclose = function(event) {}; 
 //ws.onerror = function(event) {}; 
 ws.onmessage = function(event) {
@@ -102,11 +102,11 @@ function form_submit(f) {
 	if(!chack_form(f))return false;
 
 	var user=f.n.value;
-	//var pass=hex_md5(user+f.p.value);
+	var pass=hex_md5(user+f.p.value);
 	console.log(f.name);
 	
 	//ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+decodeURIComponent(prom)+'"}');
-	ws.send(f.name);
+	ws.send('88888888888');
 }
 
 function chack_form(f){
