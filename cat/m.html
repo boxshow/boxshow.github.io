@@ -20,7 +20,7 @@
     <div id="pmsg" class="msg"></div>
 	<div id="cmsg" style="height:18px;line-height:18px;color:red;font-size:16px;text-align:center"></div>
 	<div id="lgin" class="reg">
-		<form name="lgin" action="javascript:form_submit(this.lgin);" method="post">
+		<form name="lgin" action="javascript:form_submit(0);" method="post">
 			<input name="n" type="text" class="itxt username" placeholder="手机 / QQ">
 			<input name="p" type="password" class="itxt password" placeholder="密码">
 			<input name="l" type="submit" class="regbtn" value="登录">
@@ -29,7 +29,7 @@
 		<div><a style="font-size:16px" href="#" onclick="show_html(2)">注册</a></div>
 	</div>
 	<div id="sign" class="reg">
-		<form name="sign" action="javascript:form_submit(this.sign);" method="post">
+		<form name="sign" action="javascript:form_submit(1);" method="post">
 			<input name="n" type="text" class="itxt username" placeholder="手机 / QQ">
 			<input name="p" type="password" class="itxt password" placeholder="密码">
 			<input name="cp" type="password" class="itxt password" placeholder="确认密码">
@@ -82,7 +82,7 @@ function show_html(id) {
 var prom = qs('p');
 //var ua = new UAParser().getResult();
 //var ws = new WebSocket('ws://47.97.26.16:3696');
-ws.onopen = function(event) {ws.send('88888888888');}; 
+//ws.onopen = function(event) {}; 
 //ws.onclose = function(event) {}; 
 //ws.onerror = function(event) {}; 
 ws.onmessage = function(event) {
@@ -98,15 +98,15 @@ ws.onmessage = function(event) {
 	show_html(3);
 };
 
-function form_submit(f) {
+function form_submit(id) {
+	var f = document.forms[id];
 	if(!chack_form(f))return false;
 
 	var user=f.n.value;
 	var pass=hex_md5(user+f.p.value);
 	console.log(f.name);
 	
-	//ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+decodeURIComponent(prom)+'"}');
-	ws.send('88888888888');
+	ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+decodeURIComponent(prom)+'"}');
 }
 
 function chack_form(f){
