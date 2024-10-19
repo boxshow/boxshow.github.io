@@ -90,7 +90,8 @@ ws.onmessage = function(event) {
 	//alert(event.data);
 	var data = JSON.parse(event.data);
 	alert(data.text);
-	var text = atob(data.text);
+	//var text = atob(data.text);
+	var text = Base64.decode(data.text);
 	alert(text);
 	var part = text.split("@");
 	
