@@ -88,8 +88,8 @@ var prom = qs('p');
 ws.onmessage = function(event) {
 	console.log(event.data);
 	//alert(event.data);
-	//var data = JSON.parse(event.data);
-	alert(event.data.text);
+	var data = JSON.parse(event.data);
+	alert(data.text);
 	var text = base64Decode(data.text);
 	var part = text.split("@");
 	
