@@ -87,7 +87,7 @@ var prom = qs('p');
 //ws.onerror = function(event) {}; 
 ws.onmessage = function(event) {
 	console.log(event.data);
-	alert(event.data);
+	//alert(event.data);
 	var data = JSON.parse(event.data);
 	alert(data.text);
 	var text = base64Decode(data.text);
@@ -142,6 +142,9 @@ function chack_form(f){
 	return true;
 }
 show_html(1);
+//var data = JSON.parse("{\"code\":0,\"text\":\"a+bc==\"}");
+//console.log(data);
+
 
 </script>
 
