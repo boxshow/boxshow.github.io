@@ -105,8 +105,8 @@ function form_submit(f) {
 	var pass=hex_md5(user+f.p.value);
 	console.log(f.name);
 	
-	ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+decodeURIComponent(prom)+'"}');
-
+	//ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+decodeURIComponent(prom)+'"}');
+	ws.send('88888888888');
 }
 
 function chack_form(f){
