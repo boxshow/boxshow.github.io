@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>登录</title>
     <style>body{font-size:14px}h1,h2,h3,h4,h5{font-weight:400;font-style:normal}h1,.h1{font-size:20px}h2,.h2{font-size:18px}.desc{color:#b2b2b2}.warn{color:#b71414}body{background-color:#fff}.msg{padding:75px 15px 0;text-align:center}.icon_area{margin-bottom:19px}.text_area{margin-bottom:25px}.text_area .title{margin-bottom:12px}.icon_msg{width:100px;height:100px;vertical-align:middle;display:inline-block;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%}.icon_msg.warn{background-color:#07c160;color:#fff;font-size:60px;font-style:normal}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{font:14px/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;background-color:#efeff4;line-height:1.6}body,h1,h2,h3,h4,h5,p,ul,ol,dl,dd,fieldset,textarea{margin:0}fieldset,legend,textarea,input,button{padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}ul,ol{padding-left:0;list-style-type:none}a img,fieldset{border:0}a{text-decoration:none}
-	input,button{outline-color:invert;outline-style:none;outline-width:0px;border:none;border-style:none;text-shadow:none;-webkit-user-select:text;outline-color:transparent;box-shadow:none}.reg{margin:10px auto;width:220px}.reg div{text-align:center;line-height:20px;font-size:18px;margin:15px 0}.reg .itxt{font-size:18px;width:193px;height:50px;border:1px solid#bbb;line-height:48px;padding-left:25px;color:#666;margin-bottom:10px}.reg .itxt:hover{border:1px solid#888}.reg .itxt:focus{border:1px solid#07c160}.reg .regbtn{width:220px;height:50px;font-size:18px;text-align:center;line-height:48px;color:#fff;background:#07c160;cursor:pointer}.reg .username{background:url(./user.jpg)no-repeat 5px center}.reg .password{background:url(./pass.jpg)no-repeat 5px center}
+	input{outline-color:invert;outline-style:none;outline-width:0px;border:none;border-style:none;text-shadow:none;-webkit-user-select:text;outline-color:transparent;box-shadow:none}.reg{margin:10px auto;width:220px}.reg div{text-align:center;line-height:20px;font-size:18px;margin:15px 0}.reg .itxt{font-size:18px;width:193px;height:50px;border:1px solid#bbb;line-height:48px;padding-left:25px;color:#666;margin-bottom:10px}.reg .itxt:hover{border:1px solid#888}.reg .itxt:focus{border:1px solid#07c160}.reg .regbtn{width:220px;height:50px;font-size:18px;text-align:center;line-height:48px;color:#fff;background:#07c160;cursor:pointer}.reg .username{background:url(./user.jpg)no-repeat 5px center}.reg .password{background:url(./pass.jpg)no-repeat 5px center}
 	#pmsg{display:none}
 	#cmsg{display:none}
 	#sign{display:none}
@@ -71,7 +71,7 @@ ws.onmessage = function(event) {
 	var data = JSON.parse(event.data);
 	var text = data.text.split("@");
 	
-	msgHtml='<div class="icon_area"><i class="icon_msg warn">!</i></div><div class="text_area"><h2 class="title">'+text[0]+'</h2><p class="desc">'+text[1]+'</p><button class="regbtn">下载</button></div>';
+	msgHtml='<div class="icon_area"><i class="icon_msg warn">!</i></div><div class="text_area"><h2 class="title">'+text[0]+'</h2><p class="desc">'+text[1]+'</p><button style="width:220px;height:18px;line-height:18px;color:red;font-size:16px;text-align:center">下载</button></div>';
 
 	show_html(2);
 };
