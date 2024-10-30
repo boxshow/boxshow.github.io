@@ -98,7 +98,7 @@ ws.onmessage = function(event) {
 		//show_html(2,html);
 		document.getElementById('cmsg').innerText=text[1];
 	}else if(data.code==0){
-		window.location.href=text[1];
+		alert(text[0]);
 	}else if(data.code==1){
 		window.location.href=text[1];
 	}
