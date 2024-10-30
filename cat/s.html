@@ -25,8 +25,8 @@ input{outline-color:invert;outline-style:none;outline-width:0px;border:none;bord
 		<input name="cp" type="password" class="itxt password" placeholder="确认密码">
 		<input name="r" type="submit" class="regbtn" style="background-color:#08f;" value="注册">
 	</form>
-	<p style="font-size:30px;margin:20px 0px;color:green;">全网资源高清无广告零等待</p>
-	<p style="font-size:16px;margin:20px 0px;color:gray;">电影/长剧/短剧/小说/动漫/国学/写真</p>
+	<p style="font-size:24px;margin:20px 0px;color:green;">全网资源高清无广告零等待</p>
+	<p style="font-size:14px;margin:20px 0px;color:gray;">电影/长剧/短剧/小说/动漫/国学/写真</p>
 	<div class="regbtn" style="margin:0 auto;background-color:#6850a4;" onclick="down()">下载</div>
 </div>
 	
@@ -62,8 +62,7 @@ function qs(name) {
 	return null;
 }
 function down() {
-	var user = prompt('请输入你的账号');
-	ws.send('{"form":"test", "user":"'+user+'", "pass":"", "prom":""}');
+	if(confirm('您确定已经注册账号？')==true)window.location.href='https://uduou.lanzouw.com/b00ef1xvri';
 }
 function show_html(id,html='') {
 	
@@ -93,13 +92,11 @@ ws.onmessage = function(event) {
 	var data = JSON.parse(event.data);
 	var text = data.text.split("@");
 	
-	if(data.code==-1){
+	if(data.code<0){
 		//var html = '<div class="topinfo">!</div><div class="fmsg">'+text[0]+'</div><div class="furl"></div><div class="fbox">'+text[1]+'</div>';
 		//show_html(2,html);
 		document.getElementById('cmsg').innerText=text[1];
-	}else if(data.code==0){
-		alert(text[0]);
-	}else if(data.code==1){
+	}else{
 		window.location.href=text[1];
 	}
 
