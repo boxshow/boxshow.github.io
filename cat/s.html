@@ -85,8 +85,9 @@ ws.onmessage = function(event) {
 	//console.log(event.data);
 	
 	var data = JSON.parse(event.data);
+	var text = data.text.split("@");
+	
 	if(data.code<0){
-		var text = data.text.split("@");
 		//var html = '<div class="topinfo">!</div><div class="fmsg">'+text[0]+'</div><div class="furl"></div><div class="fbox">'+text[1]+'</div>';
 		//show_html(2,html);
 		document.getElementById('cmsg').innerText=text[1];
