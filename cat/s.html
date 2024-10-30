@@ -62,8 +62,52 @@ function qs(name) {
 	return null;
 }
 function down() {
-	if(confirm('您确定已经注册账号？')==true)window.location.href='https://uduou.lanzouw.com/b00ef1xvri';
+	confirmBox('您确定已经注册账号？', 'https://uduou.lanzouw.com/b00ef1xvri');
 }
+
+function confirmBox(con, url='') {
+	var db = document;
+	var w = window;
+	if (w.parent != undefined) {
+		db = w.parent.document;
+	}
+	var box = document.createElement("div");
+	db.body.appendChild(box);
+	box.style = "position: fixed;left:0;right:0;top:0;bottom:0;z-index:200;background:rgba(100,100,100,0.5);";
+	var div = document.createElement("div");
+	box.appendChild(div);
+	div.style =
+		"width:280px;height:200px;padding:10px;background:#fff;position: absolute;top:50%;margin-top:-100px;left:50%;margin-left:-150px;";
+	var h2 = document.createElement("h2");
+	h2.innerHTML = "提示信息";
+	h2.style = "line-height:40px;height:40px;font-size:20px;text-align:center;margin:0;";
+	div.appendChild(h2);
+	var condiv = document.createElement("div");
+	condiv.innerHTML = con;
+	condiv.style =
+		"line-height:24px;font-size:16px;text-align: center;padding:20px;height:60px;";
+	div.appendChild(condiv);
+	
+	var obtn = document.createElement("div");
+	div.appendChild(obtn);
+	obtn.style = "width:100px;height:45px;line-height:40px;margin-left:35px; float:left;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
+	obtn.innerHTML = '<div>确定</div>';
+	var oqd = obtn.children[0];
+	oqd.onclick = function () {
+		db.body.removeChild(box);
+		if(url!='')window.location.href=url;
+	}
+	
+	var cbtn = document.createElement("div");
+	div.appendChild(cbtn);
+	cbtn.style = "width:100px;height:45px;line-height:40px;margin-right:35px; float:right;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
+	cbtn.innerHTML = '<div>取消</div>';
+	var cqd = cbtn.children[0];
+	cqd.onclick = function () {
+		db.body.removeChild(box);
+	}
+}
+
 function show_html(id,html='') {
 	
 	if(id==1){//注册
