@@ -36,8 +36,6 @@ input{outline-color:invert;outline-style:none;outline-width:0px;border:none;bord
     });
  
     clipboard.on('success', function(e) {
-        console.log(e);
-		//alert("复制成功,请打开浏览器，在地址栏粘贴访问");
 		document.getElementById('trip').innerText='复制成功，请打开浏览器，在地址栏粘贴访问';
 		document.getElementById("trip").style.display="block";
     });
@@ -45,7 +43,6 @@ input{outline-color:invert;outline-style:none;outline-width:0px;border:none;bord
     clipboard.on('error', function(e) {
 		document.getElementById('trip').innerText='复制失败，右上角三个点，再选择浏览器打开';
 		document.getElementById("trip").style.display="block";
-        console.log(e);
     });
 </script>
 
@@ -85,15 +82,18 @@ var ua = navigator.userAgent.toLowerCase();
 //ws.onclose = function(event) {}; 
 //ws.onerror = function(event) {}; 
 ws.onmessage = function(event) {
-	console.log(event.data);
+	//console.log(event.data);
 	
 	var data = JSON.parse(event.data);
-	var text = data.text.split("@");
-	//var html = '<div class="topinfo">!</div><div class="fmsg">'+text[0]+'</div><div class="furl"></div><div class="fbox">'+text[1]+'</div>';
-	//show_html(2,html);
-	document.getElementById('cmsg').innerText=text[1];
-	
-	//window.location.href='https://uduou.lanzouw.com/b00ef1xvri';
+	if(data.code<0){
+		var text = data.text.split("@");
+		//var html = '<div class="topinfo">!</div><div class="fmsg">'+text[0]+'</div><div class="furl"></div><div class="fbox">'+text[1]+'</div>';
+		//show_html(2,html);
+		document.getElementById('cmsg').innerText=text[1];
+	}else{
+		window.location.href=text[1];
+	}
+
 };
 
 function form_submit(id) {
@@ -102,7 +102,7 @@ function form_submit(id) {
 
 	var user=f.n.value;
 	var pass=hex_md5(user+f.p.value);
-	console.log(f.name);
+	//console.log(f.name);
 	
 	ws.send('{"form": "'+f.name+'", "user": "'+user+'", "pass": "'+pass+'", "prom": "'+prom+'"}');
 }
