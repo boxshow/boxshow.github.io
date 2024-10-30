@@ -89,7 +89,8 @@ function confirmBox(con, url='') {
 	div.appendChild(condiv);
 	
 	var obtn = document.createElement("div");
-	div.appendChild(obtn);
+	var cbtn = document.createElement("div");
+
 	obtn.style = "width:100px;height:45px;line-height:45px;margin-left:35px; float:left;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
 	obtn.innerHTML = '<div>确定</div>';
 	var oqd = obtn.children[0];
@@ -98,14 +99,15 @@ function confirmBox(con, url='') {
 		if(url!='')window.location.href=url;
 	}
 	
-	var cbtn = document.createElement("div");
-	div.appendChild(cbtn);
 	cbtn.style = "width:100px;height:45px;line-height:45px;margin-right:35px; float:right;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
 	cbtn.innerHTML = '<div>取消</div>';
 	var cqd = cbtn.children[0];
 	cqd.onclick = function () {
 		db.body.removeChild(box);
 	}
+	
+	div.appendChild(obtn);
+	div.appendChild(cbtn);
 }
 
 function show_html(id,html='') {
