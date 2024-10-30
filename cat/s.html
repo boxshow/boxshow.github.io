@@ -90,7 +90,9 @@ function confirmBox(con, url='') {
 	
 	var obtn = document.createElement("div");
 	var cbtn = document.createElement("div");
-
+	div.appendChild(obtn);
+	div.appendChild(cbtn);
+	
 	obtn.style = "width:100px;height:45px;line-height:45px;margin-left:35px; float:left;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
 	obtn.innerHTML = '<div>确定</div>';
 	var oqd = obtn.children[0];
@@ -105,9 +107,6 @@ function confirmBox(con, url='') {
 	cqd.onclick = function () {
 		db.body.removeChild(box);
 	}
-	
-	div.appendChild(obtn);
-	div.appendChild(cbtn);
 }
 
 function show_html(id,html='') {
