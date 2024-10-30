@@ -98,7 +98,7 @@ function confirmBox(con, url='') {
 	var oqd = obtn.children[0];
 	oqd.onclick = function () {
 		db.body.removeChild(box);
-		if(url!='')window.location.href=url;
+		setTimeout(function(){if(url!='')window.location.href=url;}, 1000);
 	}
 	
 	cbtn.style = "width:100px;height:45px;line-height:45px;margin-right:35px; float:right;text-align:center;background:#6850a4;color:#fff;cursor:pointer";
